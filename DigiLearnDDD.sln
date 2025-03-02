@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiLearn.Domain", "DigiLearn.Domain\DigiLearn.Domain.csproj", "{64A6D4EB-3DA5-4365-973D-8B64B876B157}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{5407570E-C08D-45FE-BB87-F57481EF1017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiLearn.Shared.Abstraction", "DigiLearn.Shared.Abstraction\DigiLearn.Shared.Abstraction.csproj", "{43A4DC36-6FE6-4269-9B01-FDCCED7255DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64A6D4EB-3DA5-4365-973D-8B64B876B157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A6D4EB-3DA5-4365-973D-8B64B876B157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A6D4EB-3DA5-4365-973D-8B64B876B157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A6D4EB-3DA5-4365-973D-8B64B876B157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A4DC36-6FE6-4269-9B01-FDCCED7255DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A4DC36-6FE6-4269-9B01-FDCCED7255DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A4DC36-6FE6-4269-9B01-FDCCED7255DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A4DC36-6FE6-4269-9B01-FDCCED7255DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43A4DC36-6FE6-4269-9B01-FDCCED7255DB} = {5407570E-C08D-45FE-BB87-F57481EF1017}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C2A1EF2-5F2A-45F8-968C-ECC6B42EE7C7}
+	EndGlobalSection
+EndGlobal
