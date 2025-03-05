@@ -1,31 +1,36 @@
-﻿namespace DigiLearn.Shared.Abstraction.Domain
+﻿namespace DigiLearn.Shared.Abstraction.Domain;
+
+public abstract class AggregateRoot<T>
 {
-    public abstract class AggregateRoot<T>
+    public T Id { get; protected set; }
+
+    //public int Version { get; protected set; }
+
+    private bool _isIncremented;
+
+    protected void IncrementVersion()
     {
-        public T Id { get;protected set; }
-        public int Version { get; protected set; }
+        if (_isIncremented) return;
 
-        private bool _isIncremented;
+        //Version++;
+        _isIncremented = true;
+    }
 
-        protected void IncrementVersion()
+    private List<IDomainEvent> _events = new();
+    public IEnumerable<IDomainEvent> Events => _events;
+
+    protected void RaiseDomainEvent(IDomainEvent @event)
+    {
+        if (!_events.Any() && !_isIncremented)
         {
-            if (_isIncremented) return;
-
-            Version++;
+            //Version++;
             _isIncremented = true;
         }
+        _events.Add(@event);
+    }
 
-        private List<IDomainEvent> _events = new();
-        public IEnumerable<IDomainEvent> Events => _events;
-
-        protected void RaiseDomainEvent(IDomainEvent @event)
-        {
-            if (!_events.Any() && !_isIncremented)
-            {
-                Version++;
-                _isIncremented = true;
-            }
-            _events.Add(@event);
-        }
+    public void ClearEvents()
+    {
+        _events.Clear();
     }
 }

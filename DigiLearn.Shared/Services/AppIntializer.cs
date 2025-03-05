@@ -35,3 +35,4 @@ internal sealed class AppIntializer : IHostedService
         return Task.CompletedTask;
     }
 }
+

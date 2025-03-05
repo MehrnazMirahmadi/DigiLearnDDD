@@ -1,16 +1,26 @@
-﻿using DigiLearn.Domain.Entities.CourseManagement;
-using DigiLearn.Domain.Entities.UserManagement;
+﻿using DigiLearn.Domain.Primitives;
+using DigiLearn.Domain.ValueObjects;
 
 namespace DigiLearn.Domain.Entities.PaymentManagement;
-
-public class Invoice
+public class Invoice : BaseEntity
 {
-    public Guid Id { get; set; }
-    public decimal Amount { get; set; }
-    public DateTime Date { get; set; }
-    public Guid UserId { get; set; }
-    public User User { get; set; }
-    public Guid CourseId { get; set; }
-    public Course Course { get; set; }
+    private Amount _amount;
+    private DateTime _date;
+    private BaseId _userId;
+    private BaseId _courseId;
+
+    internal Invoice(BaseId id, Amount amount, DateTime date, BaseId userId, BaseId courseId) : base(id)
+    {
+        _amount = amount;
+        _date = date;
+        _userId = userId;
+        _courseId = courseId;
+    }
+
+    public Invoice(BaseId id) : base(id)
+    {
+
+    }
 }
+
 
