@@ -15,20 +15,25 @@ public class Course : AggregateRoot<BaseId>
     private BaseId _instructorId;
     private LinkedList<CourseAttendee> _courseAttendees;
     private LinkedList<CourseCatalog> _courseCatalogs;
+
     internal Course(BaseId id, Title title, Description description, bool isFree, Price price, BaseId instructorId)
     {
-          Id = id;
+        Id = id;
         _title = title;
         _description = description;
         _isFree = isFree;
         _price = price;
         _instructorId = instructorId;
+        RaiseDomainEvent(new NewCourseCreatedEvent(this));
     }
-    public Course(BaseId id) 
+
+    public Course()
     {
+
     }
+
     #region Course Attendees Activities
-    public void AddCourseAttendee(CourseAttendee courseAttendee) 
+    public void AddCourseAttendee(CourseAttendee courseAttendee)
     {
         var attendeeExists = _courseAttendees.Any(a => a.Id == courseAttendee.Id);
         if (attendeeExists)
@@ -37,11 +42,29 @@ public class Course : AggregateRoot<BaseId>
         }
 
         _courseAttendees.AddLast(courseAttendee);
-         RaiseDomainEvent(new CourseAttendeeAddedEvent(this, courseAttendee));
-
-
+        RaiseDomainEvent(new CourseAttendeeAddedEvent(this, courseAttendee));
     }
+
+    public void RemoveCourseAttendee(BaseId id)
+    {
+        var attendee = GetAttendee(id);
+        _courseAttendees.Remove(attendee);
+    }
+
+    private CourseAttendee GetAttendee(BaseId id)
+    {
+        var attendee = _courseAttendees.SingleOrDefault(a => a.Id == id);
+
+        if (attendee == null)
+        {
+            throw new CourseAttendeeNotFoundException();
+        }
+
+        return attendee;
+    }
+
     #endregion
+
     #region Course Catalog Activitiess
     public void AddCourseCatalog(CourseCatalog courseCatalog)
     {

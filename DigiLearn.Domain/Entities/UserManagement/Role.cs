@@ -1,8 +1,20 @@
-﻿namespace DigiLearn.Domain.Entities.UserManagement;
+﻿using DigiLearn.Domain.Primitives;
+using DigiLearn.Domain.ValueObjects;
 
-public class Role
+namespace DigiLearn.Domain.Entities.UserManagement;
+
+public class Role : BaseEntity
 {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public List<UserRole> UserRoles { get; set; }
+
+    private RoleName _roleName;
+    private LinkedList<UserRole> _userRoles;
+    internal Role(BaseId id, RoleName roleName) : base(id)
+    {
+        _roleName = roleName;
+    }
+
+    public Role(BaseId id) : base(id)
+    {
+
+    }
 }

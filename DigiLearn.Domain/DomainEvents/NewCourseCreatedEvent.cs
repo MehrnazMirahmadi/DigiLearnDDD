@@ -3,4 +3,4 @@ using DigiLearn.Shared.Abstraction.Domain;
 
 namespace DigiLearn.Domain.DomainEvents;
 
-public record NewCourseCreatedEvent(Course course) : IDomanEvent;
+public record NewCourseCreatedEvent(Course course) : IDomainEvent;

@@ -10,4 +10,8 @@
     <ProjectReference Include="..\DigiLearn.Shared.Abstraction\DigiLearn.Shared.Abstraction.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Factories\PaymentManagement\" />
+  </ItemGroup>
+
 </Project>

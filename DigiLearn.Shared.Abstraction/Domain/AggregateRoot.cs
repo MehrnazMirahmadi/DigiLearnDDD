@@ -15,10 +15,10 @@
             _isIncremented = true;
         }
 
-        private List<IDomanEvent> _events = new();
-        public IEnumerable<IDomanEvent> Events => _events;
+        private List<IDomainEvent> _events = new();
+        public IEnumerable<IDomainEvent> Events => _events;
 
-        protected void RaiseDomainEvent(IDomanEvent @event)
+        protected void RaiseDomainEvent(IDomainEvent @event)
         {
             if (!_events.Any() && !_isIncremented)
             {
