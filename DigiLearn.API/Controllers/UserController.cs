@@ -5,8 +5,7 @@ using DigiLearn.Shared.Abstraction.Commands;
 using DigiLearn.Shared.Abstraction.Queries;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DigiLearn.API.Controllers
-{
+namespace DigiLearn.API.Controllers;
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
